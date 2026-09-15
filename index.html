@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DG Brandfluencer — Strategy. Story. Influence.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#F6BF6B;
+  --gold-bright:#FFD08A;
+  --gold-dim:#c9994a;
+  --ink:#312D29;
+  --ink-mid:#1e1b18;
+  --ink-deep:#12100e;
+  --cream:#FFF8ED;
+  --sand:#F3E5D0;
+  --terra:#B86E45;
+  --terra-bright:#D4874F;
+  --ff-d:'Playfair Display',Georgia,serif;
+  --ff-s:'Montserrat',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-s);background:var(--ink-deep);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5vw;border-bottom:0.5px solid rgba(246,191,107,0.12);background:rgba(12,10,9,0.88);backdrop-filter:blur(14px);}
+.nav-logo-wrap{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+.monogram{width:34px;height:34px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.monogram span{font-family:var(--ff-d);font-size:15px;font-weight:700;color:var(--ink);}
+.nav-wordmark{font-family:var(--ff-s);font-weight:700;font-size:12px;letter-spacing:.18em;color:var(--gold);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,248,237,.45);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.55rem 1.5rem;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--gold-bright);}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5vw 8vh;position:relative;overflow:hidden;background:var(--ink-deep);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(246,191,107,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(246,191,107,.045) 1px,transparent 1px);background-size:55px 55px;pointer-events:none;}
+.hero-glow-a{position:absolute;top:-15%;right:-8%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(ellipse at center,rgba(246,191,107,.11) 0%,transparent 62%);pointer-events:none;animation:pulse 6s ease-in-out infinite alternate;}
+.hero-glow-b{position:absolute;bottom:-20%;left:-10%;width:45vw;height:45vw;border-radius:50%;background:radial-gradient(ellipse at center,rgba(184,110,69,.08) 0%,transparent 60%);pointer-events:none;animation:pulse 8s ease-in-out 2s infinite alternate;}
+@keyframes pulse{from{opacity:.6;}to{opacity:1;}}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:rgba(246,191,107,.08);border:0.5px solid rgba(246,191,107,.25);padding:.45rem 1rem;margin-bottom:2rem;}
+.hero-badge::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero-headline{font-family:var(--ff-d);font-size:clamp(3.4rem,7.5vw,7rem);font-weight:400;line-height:1.02;color:var(--cream);max-width:14ch;position:relative;margin-bottom:0;}
+.hero-headline em{font-style:italic;color:var(--gold);}
+.hero-rule{width:0;height:1.5px;background:linear-gradient(90deg,var(--gold),rgba(246,191,107,0));margin:2rem 0;animation:rule-grow .9s ease-out .5s forwards;}
+@keyframes rule-grow{to{width:min(520px,65vw);}}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.hero-sub{font-size:15px;font-weight:300;line-height:1.78;color:rgba(255,248,237,.55);max-width:40ch;}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-shrink:0;}
+.btn-primary{font-family:var(--ff-s);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.9rem 2.2rem;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;}
+.btn-primary:hover{background:var(--gold-bright);transform:translateY(-1px);}
+.btn-ghost{font-family:var(--ff-s);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,248,237,.45);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:color .2s;}
+.btn-ghost:hover{color:var(--gold);}
+
+/* ── STATS BAR ── */
+#stats{background:rgba(246,191,107,.06);border-top:0.5px solid rgba(246,191,107,.15);border-bottom:0.5px solid rgba(246,191,107,.15);padding:2.5rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.stat{text-align:center;flex:1;min-width:140px;}
+.stat-num{font-family:var(--ff-d);font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;}
+.stat-label{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,248,237,.4);margin-top:.4rem;}
+.stat-divider{width:0.5px;height:3rem;background:rgba(246,191,107,.15);flex-shrink:0;}
+
+/* ── ABOUT ── */
+#about{background:var(--ink);padding:10rem 5vw;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-left{position:sticky;top:6rem;}
+.section-label{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;}
+.section-label::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
+.about-headline{font-family:var(--ff-d);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;color:var(--cream);margin-bottom:1.75rem;}
+.about-headline em{font-style:italic;color:var(--gold);}
+.about-body{font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,248,237,.6);max-width:44ch;}
+.about-body+.about-body{margin-top:1.25rem;}
+.mantra{margin-top:2.5rem;padding:1.5rem;border-left:2px solid var(--gold);background:rgba(246,191,107,.04);}
+.mantra p{font-family:var(--ff-d);font-style:italic;font-size:1.05rem;color:var(--gold);line-height:1.5;}
+.about-right{display:flex;flex-direction:column;}
+.pillar{padding:2rem 0;border-bottom:.5px solid rgba(246,191,107,.12);display:grid;grid-template-columns:3rem 1fr;gap:1.5rem;align-items:start;}
+.pillar:first-child{border-top:.5px solid rgba(246,191,107,.12);}
+.pillar-icon{width:2.5rem;height:2.5rem;border:.5px solid rgba(246,191,107,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:background .2s,border-color .2s;}
+.pillar:hover .pillar-icon{background:rgba(246,191,107,.08);border-color:rgba(246,191,107,.5);}
+.pillar-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+.pillar-name{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.pillar-desc{font-size:14px;font-weight:300;line-height:1.7;color:rgba(255,248,237,.55);}
+
+/* ── CLIENTS ── */
+#clients{background:var(--ink-mid);padding:5rem 5vw;text-align:center;}
+.clients-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,248,237,.3);margin-bottom:2.5rem;}
+.clients-row{display:flex;align-items:center;justify-content:center;gap:3.5rem;flex-wrap:wrap;}
+.client-name{font-family:var(--ff-d);font-size:1.05rem;font-weight:500;color:rgba(255,248,237,.18);letter-spacing:.04em;transition:color .25s;}
+.client-name:hover{color:rgba(246,191,107,.5);}
+
+/* ── PROCESS ── */
+#process{background:var(--ink-deep);padding:10rem 5vw;}
+.process-header{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:5rem;}
+.process-headline{font-family:var(--ff-d);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;color:var(--cream);}
+.process-headline em{font-style:italic;color:var(--gold);}
+.process-intro{font-size:15px;font-weight:300;line-height:1.8;color:rgba(255,248,237,.5);max-width:40ch;}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.step{padding:2.5rem 2rem 2.5rem 2rem;border-left:.5px solid rgba(246,191,107,.12);position:relative;transition:background .25s;}
+.step:hover{background:rgba(246,191,107,.03);}
+.step-dot{position:absolute;top:2.5rem;left:-4px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+.step-num{font-family:var(--ff-d);font-size:3rem;font-weight:400;color:rgba(246,191,107,.1);line-height:1;margin-bottom:1.5rem;display:block;}
+.step-title{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);margin-bottom:.75rem;}
+.step-body{font-size:13px;font-weight:300;line-height:1.75;color:rgba(255,248,237,.45);}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--ink);padding:10rem 5vw;}
+.test-header{text-align:center;margin-bottom:4rem;}
+.test-headline{font-family:var(--ff-d);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;color:var(--cream);margin-top:.75rem;}
+.test-headline em{font-style:italic;color:var(--gold);}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.test-card{background:rgba(246,191,107,.04);border:.5px solid rgba(246,191,107,.12);padding:2rem;position:relative;}
+.test-quote-mark{font-family:var(--ff-d);font-size:4rem;line-height:.8;color:var(--gold);opacity:.25;position:absolute;top:1.2rem;left:1.5rem;}
+.test-body{font-family:var(--ff-d);font-style:italic;font-size:1rem;line-height:1.75;color:rgba(255,248,237,.75);margin-top:1.5rem;padding-top:.5rem;}
+.test-author{margin-top:1.5rem;display:flex;align-items:center;gap:.75rem;}
+.test-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink);flex-shrink:0;}
+.test-name{font-size:12px;font-weight:600;color:var(--cream);}
+.test-role{font-size:11px;font-weight:400;color:rgba(255,248,237,.4);margin-top:.15rem;}
+.test-stars{color:var(--gold);font-size:11px;letter-spacing:.1em;margin-bottom:.25rem;}
+
+/* ── CONTACT ── */
+#contact{background:var(--cream);padding:10rem 5vw;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.contact-left .section-label{color:var(--terra);}
+.contact-left .section-label::before{background:var(--terra);}
+.contact-headline{font-family:var(--ff-d);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;color:var(--ink);margin-bottom:1.5rem;}
+.contact-headline em{font-style:italic;color:var(--terra);}
+.contact-body{font-size:15px;font-weight:300;line-height:1.8;color:rgba(49,45,41,.6);max-width:40ch;margin-bottom:2.5rem;}
+.contact-detail{display:flex;align-items:center;gap:1rem;font-size:13px;font-weight:400;color:rgba(49,45,41,.55);margin-bottom:.75rem;}
+.contact-detail strong{font-weight:600;color:var(--ink);min-width:5.5rem;font-size:10px;letter-spacing:.12em;text-transform:uppercase;}
+.social-link{display:inline-flex;align-items:center;gap:.6rem;color:var(--terra);font-size:12px;font-weight:600;letter-spacing:.06em;text-decoration:none;margin-top:1.5rem;transition:color .2s;}
+.social-link:hover{color:var(--ink);}
+.social-link svg{width:16px;height:16px;fill:currentColor;}
+.contact-form{display:flex;flex-direction:column;gap:1.25rem;}
+.form-group{display:flex;flex-direction:column;gap:.5rem;}
+.form-group label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(49,45,41,.4);}
+.form-group input,.form-group textarea,.form-group select{font-family:var(--ff-s);font-size:14px;font-weight:300;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(49,45,41,.18);padding:.75rem 0;outline:none;transition:border-color .2s;resize:none;width:100%;appearance:none;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(49,45,41,.28);}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-bottom-color:var(--terra);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.btn-submit{font-family:var(--ff-s);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--ink);border:none;padding:1rem 2.5rem;cursor:pointer;align-self:flex-start;margin-top:.5rem;transition:background .2s,transform .15s;}
+.btn-submit:hover{background:var(--terra);transform:translateY(-1px);}
+
+/* ── FOOTER ── */
+footer{background:var(--ink-deep);padding:3rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-top:.5px solid rgba(246,191,107,.1);}
+.footer-brand{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.footer-tagline{font-family:var(--ff-d);font-size:14px;font-style:italic;color:rgba(255,248,237,.3);}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{font-size:11px;color:rgba(255,248,237,.25);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:11px;color:rgba(255,248,237,.2);}
+
+@media(max-width:900px){
+  #about{grid-template-columns:1fr;gap:3rem;}
+  .about-left{position:static;}
+  .process-header{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;gap:2rem;}
+  .test-grid{grid-template-columns:1fr;}
+  #contact{grid-template-columns:1fr;gap:3rem;}
+  #stats{justify-content:center;}
+  .stat-divider{display:none;}
+}
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .process-steps{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .hero-headline{font-size:2.8rem;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+  .clients-row{gap:2rem;}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-rule{animation:none;width:min(520px,65vw);}
+  .hero-glow-a,.hero-glow-b{animation:none;}
+  .hero-badge::before{animation:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo-wrap">
+    <div class="monogram"><span>DG</span></div>
+    <span class="nav-wordmark">Brandfluencer</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Results</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Start a project</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow-a" aria-hidden="true"></div>
+  <div class="hero-glow-b" aria-hidden="true"></div>
+
+  <p class="hero-badge">Boutique digital marketing studio · Est. 2026</p>
+
+  <h1 class="hero-headline">
+    Strategy.<br>Story.<br><em>Influence.</em>
+  </h1>
+
+  <div class="hero-rule" aria-hidden="true"></div>
+
+  <div class="hero-bottom">
+    <p class="hero-sub">
+      We help ambitious businesses build a clearer, stronger digital presence — turning attention into meaningful action and browsers into loyal buyers.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a project</a>
+      <a href="#about" class="btn-ghost">Discover how &darr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats" role="region" aria-label="Agency results">
+  <div class="stat">
+    <div class="stat-num">48+</div>
+    <div class="stat-label">Brands transformed</div>
+  </div>
+  <div class="stat-divider" aria-hidden="true"></div>
+  <div class="stat">
+    <div class="stat-num">3.2×</div>
+    <div class="stat-label">Avg. engagement lift</div>
+  </div>
+  <div class="stat-divider" aria-hidden="true"></div>
+  <div class="stat">
+    <div class="stat-num">₹4.6Cr</div>
+    <div class="stat-label">Revenue generated</div>
+  </div>
+  <div class="stat-divider" aria-hidden="true"></div>
+  <div class="stat">
+    <div class="stat-num">96%</div>
+    <div class="stat-label">Client retention</div>
+  </div>
+  <div class="stat-divider" aria-hidden="true"></div>
+  <div class="stat">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Industries served</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left">
+    <p class="section-label">About us</p>
+    <h2 class="about-headline">
+      Brands that <em>influence</em><br>perception, conversation<br>and action
+    </h2>
+    <p class="about-body">
+      DG BRANDFLUENCER is a boutique digital marketing studio built on one belief: clarity before creativity, strategy before posting.
+    </p>
+    <p class="about-body">
+      We work with founder-led businesses, premium local brands and growing service businesses who know they're good — and need their digital presence to communicate that quality.
+    </p>
+    <div class="mantra">
+      <p>Be seen. Be remembered. Be chosen.</p>
+    </div>
+  </div>
+
+  <div class="about-right">
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <p class="pillar-name">Strategic</p>
+        <p class="pillar-desc">Clear, intentional and commercially aware. Every decision traces back to a business goal, not a gut feeling.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <div>
+        <p class="pillar-name">Creative</p>
+        <p class="pillar-desc">Fresh ideas with a strong visual point of view. A distinctive perspective on every brand we touch.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <p class="pillar-name">Premium</p>
+        <p class="pillar-desc">Polished without feeling inaccessible. We position our clients as the obvious, trusted choice in their market.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div>
+        <p class="pillar-name">Results-led</p>
+        <p class="pillar-desc">Visibility, authority and growth are not vanity metrics for us. They're the only metrics that matter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <p class="clients-label">Trusted by brands across industries</p>
+  <div class="clients-row">
+    <span class="client-name">Lumière Boutique</span>
+    <span class="client-name">Artha Ventures</span>
+    <span class="client-name">The Kona Studio</span>
+    <span class="client-name">Velvethaus</span>
+    <span class="client-name">Prakash & Co.</span>
+    <span class="client-name">Solis Skincare</span>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header">
+    <div>
+      <p class="section-label">Our process</p>
+      <h2 class="process-headline">
+        From first brief to<br><em>lasting influence</em>
+      </h2>
+    </div>
+    <p class="process-intro">
+      Four focused stages. No bloated retainers, no guesswork. We move fast, think deep, and deliver work that earns attention long after we hand it over.
+    </p>
+  </div>
+
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-dot" aria-hidden="true"></div>
+      <span class="step-num" aria-hidden="true">01</span>
+      <p class="step-title">Discover</p>
+      <p class="step-body">We dig into your business, your audience, and what stands between you and the digital presence you deserve.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot" aria-hidden="true"></div>
+      <span class="step-num" aria-hidden="true">02</span>
+      <p class="step-title">Position</p>
+      <p class="step-body">Brand strategy, messaging architecture, and a clear articulation of why your ideal client should choose you — every time.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot" aria-hidden="true"></div>
+      <span class="step-num" aria-hidden="true">03</span>
+      <p class="step-title">Create</p>
+      <p class="step-body">Content systems, visual direction, websites, and campaigns — built to look like you at your best, on every channel.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot" aria-hidden="true"></div>
+      <span class="step-num" aria-hidden="true">04</span>
+      <p class="step-title">Grow</p>
+      <p class="step-body">Ongoing strategy and digital growth support that compounds over time — turning attention into action, action into revenue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="test-header">
+    <p class="section-label" style="justify-content:center;">Client results</p>
+    <h2 class="test-headline">What our clients say about <em>working with us</em></h2>
+  </div>
+
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-quote-mark" aria-hidden="true">"</div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-body">DG Brandfluencer didn't just redesign our Instagram — they repositioned our entire brand. Within 90 days, our DM enquiries tripled and we had a waitlist for the first time. Worth every rupee.</p>
+      <div class="test-author">
+        <div class="test-avatar">PR</div>
+        <div>
+          <div class="test-name">Priya Ramachandran</div>
+          <div class="test-role">Founder, Lumière Boutique · Chennai</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card">
+      <div class="test-quote-mark" aria-hidden="true">"</div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-body">We came in with a confused identity and left with a content system that sells for us every single day. The strategy work alone was more valuable than 6 months of posting on our own.</p>
+      <div class="test-author">
+        <div class="test-avatar">AK</div>
+        <div>
+          <div class="test-name">Arjun Krishnaswamy</div>
+          <div class="test-role">CEO, Artha Ventures · Bengaluru</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card">
+      <div class="test-quote-mark" aria-hidden="true">"</div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-body">Clarity before creativity — that's real. They asked us hard questions in week one and by week four we had a brand that finally felt like us. Our website conversions went up by 2.8x.</p>
+      <div class="test-author">
+        <div class="test-avatar">SV</div>
+        <div>
+          <div class="test-name">Sanya Verma</div>
+          <div class="test-role">Creative Director, Velvethaus · Mumbai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <p class="section-label">Get in touch</p>
+    <h2 class="contact-headline">
+      Ready to be<br><em>seen, remembered</em><br>and chosen?
+    </h2>
+    <p class="contact-body">
+      Tell us about your business. We'll tell you exactly what it would take to make your digital presence impossible to ignore.
+    </p>
+    <div class="contact-detail">
+      <strong>Email</strong>
+      <span>hello@dgbrandfluencer.com</span>
+    </div>
+    <div class="contact-detail">
+      <strong>Studio</strong>
+      <span>Chennai · Available worldwide</span>
+    </div>
+    <div class="contact-detail">
+      <strong>Response</strong>
+      <span>Within 24 hours on business days</span>
+    </div>
+    <a href="https://www.facebook.com/dgbrandfluencer" target="_blank" rel="noopener" class="social-link">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      Follow us on Facebook
+    </a>
+  </div>
+
+  <form class="contact-form" onsubmit="handleSubmit(event);">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Your name</label>
+        <input type="text" id="name" placeholder="Full name" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="business">Business name</label>
+        <input type="text" id="business" placeholder="Company or brand">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="you@yourcompany.com" autocomplete="email">
+    </div>
+    <div class="form-group">
+      <label for="service">What do you need?</label>
+      <select id="service">
+        <option value="" disabled selected>Select a service</option>
+        <option>Brand strategy &amp; positioning</option>
+        <option>Content system &amp; social media</option>
+        <option>Website design &amp; development</option>
+        <option>Digital growth &amp; paid ads</option>
+        <option>Full-studio retainer</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="goal">Tell us your goal</label>
+      <textarea id="goal" rows="4" placeholder="What are you trying to achieve? Where does your brand feel stuck?"></textarea>
+    </div>
+    <button type="submit" class="btn-submit" id="submit-btn">Send message</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">DG Brandfluencer</span>
+  <span class="footer-tagline">Strategy. Story. Influence.</span>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="https://www.facebook.com/dgbrandfluencer" target="_blank" rel="noopener">Facebook</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <span class="footer-copy">© 2026 DG Brandfluencer. All rights reserved.</span>
+</footer>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=document.getElementById('submit-btn');
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  if(!name||!email){
+    btn.textContent='Fill in your name and email';
+    btn.style.background='#B86E45';
+    setTimeout(()=>{btn.textContent='Send message';btn.style.background='';},2500);
+    return;
+  }
+  btn.textContent='Message sent ✓';
+  btn.style.background='#4a7c59';
+  btn.disabled=true;
+}
+</script>
+
+</body>
+</html>
