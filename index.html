@@ -239,32 +239,92 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 .ft-copy{font-size:.62rem;color:rgba(255,255,255,.14);}
 
 /* ── RESPONSIVE ── */
+/* ── TABLET (≤960px) ── */
 @media(max-width:960px){
   .nlinks{display:none;}
+  nav{padding:.85rem 5vw;}
+  .hero-h{font-size:clamp(2.4rem,7vw,4rem);}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:1.5rem;}
+  .hero-actions{flex-direction:row;}
   #about{grid-template-columns:1fr;}
   .about-img-col{min-height:360px;}
-  .about-text-col{padding:3.5rem 4vw;}
+  .about-text-col{padding:3rem 5vw;}
   .pillars-grid{grid-template-columns:1fr 1fr;}
+  .srv-hdr{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .srv-row{grid-template-columns:2.5rem 1fr;gap:1rem;}
+  .srv-row-tag{display:none;}
+  .srv-row-desc{max-width:100%;}
   #stats{grid-template-columns:1fr 1fr;}
   .stat-block:nth-child(2){border-right:none;}
   .stat-block:nth-child(3){border-top:1px solid rgba(255,255,255,.1);}
-  .proc-top{grid-template-columns:1fr;}
+  .proc-top{grid-template-columns:1fr;gap:1.5rem;}
+  .proc-step-desc{max-width:100%;}
   .work-grid{grid-template-columns:1fr;grid-template-rows:auto;}
   .wcard:nth-child(1){grid-row:span 1;}
-  .wcard{height:290px;}
+  .wcard{height:280px;}
+  .wcard-over{opacity:1;}
+  .work-hdr{flex-direction:column;align-items:flex-start;gap:1rem;}
   .results-grid{grid-template-columns:1fr 1fr;}
   .test-layout{grid-template-columns:1fr;}
-  .test-img-col{min-height:300px;}
-  .test-cards{padding:3rem 0 0;}
-  #cta-banner{flex-direction:column;}
+  .test-img-col{min-height:280px;}
+  .test-cards{padding:2.5rem 0 0;}
+  .faq-inner{max-width:100%;}
+  #cta-banner{flex-direction:column;align-items:flex-start;gap:2rem;}
+  .cta-h{font-size:clamp(1.8rem,5vw,3rem);}
   #contact{grid-template-columns:1fr;gap:3rem;}
+  .con-img-wrap{display:none;}
+  footer{flex-direction:column;align-items:flex-start;gap:.75rem;}
+  .ft-links{flex-wrap:wrap;gap:1rem;}
 }
+
+/* ── MOBILE (≤600px) ── */
 @media(max-width:600px){
+  nav{padding:.75rem 5vw;}
+  .ncta{font-size:.62rem;padding:.45rem 1rem;}
+  #hero{padding:0 5vw 6vh;}
+  .hero-h{font-size:2rem;max-width:100%;}
+  .hero-sub{font-size:.88rem;max-width:100%;}
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:.75rem;}
+  .hero-meta{flex-direction:column;align-items:flex-start;gap:.5rem;}
+  #about,#pillars,#services,#process,#work,#results,#testimonials,#faq,#contact{padding:3.5rem 5vw;}
+  .about-text-col{padding:2.5rem 5vw;}
+  .about-h{font-size:1.75rem;}
+  .about-pull{max-width:100%;}
   .pillars-grid{grid-template-columns:1fr;}
+  .pillars-h{font-size:1.6rem;}
+  .srv-h{font-size:2rem;}
+  .srv-row{grid-template-columns:1.75rem 1fr;gap:.6rem;padding:1.1rem 0;}
+  .srv-row-n{font-size:.95rem;}
+  .srv-row-name{font-size:.95rem;}
+  #stats{grid-template-columns:1fr 1fr;}
+  .stat-block{padding:2rem 1rem;}
+  .stat-n{font-size:2rem;}
+  .proc-h{font-size:1.75rem;}
+  .proc-step-hdr{gap:.75rem;}
+  .proc-step-desc{padding-left:1.75rem;font-size:.82rem;}
+  .work-h{font-size:2rem;}
+  .wcard{height:230px;}
+  .wcard-name{font-size:1rem;}
+  .results-h{font-size:1.75rem;}
   .results-grid{grid-template-columns:1fr 1fr;}
+  .result-pct{font-size:2rem;}
+  .result-card{padding:1.6rem 1.1rem;}
+  .test-h{font-size:1.75rem;}
+  .tcard-body{font-size:.88rem;}
+  .faq-h{font-size:1.75rem;}
+  .faq-q-text{font-size:.88rem;}
+  #cta-banner{padding:3.5rem 5vw;}
+  .cta-h{font-size:1.75rem;}
+  .btn-cta-lg{width:100%;text-align:center;padding:.9rem 1rem;}
+  .cta-bullets li{font-size:.75rem;}
+  .con-h{font-size:1.9rem;}
   .cf-row{grid-template-columns:1fr;}
-  .hero-h{font-size:2.6rem;}
-  .hero-actions{flex-direction:column;align-items:flex-start;}
+  #trust{flex-direction:column;gap:.6rem;padding:1rem 5vw;}
+  .trust-badges{flex-wrap:wrap;gap:.75rem;}
+  .trust-badge{font-size:.58rem;}
+  footer{padding:1.5rem 5vw;gap:.6rem;}
+  .ft-tag{display:none;}
+  .ft-links{flex-wrap:wrap;gap:.6rem;}
 }
 @media(prefers-reduced-motion:reduce){
   .hero-rule{animation:none;width:min(480px,62vw);}
