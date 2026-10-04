@@ -1366,9 +1366,24 @@ function goStep(n){
   },{passive:true});
 })();
 </script>
-<a href="brand-match.html"
-   style="position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:999;background:#f6bf6b;color:#312d29;font:600 15px/1 'Jost',system-ui,sans-serif;padding:14px 20px;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px -8px rgba(49,45,41,.6)">
-  Work with us →
-</a>
+<!-- Work with us button (bottom-left, clear of WhatsApp) -->
+<style>
+  .dgb-fab{
+    position:fixed;
+    left:16px;
+    bottom:calc(20px + env(safe-area-inset-bottom,0px));
+    max-width:calc(100vw - 112px);
+    z-index:998;
+    display:inline-flex;align-items:center;gap:8px;
+    background:#f6bf6b;color:#312d29;
+    font:600 15px/1 'Jost',system-ui,sans-serif;
+    padding:14px 20px;border-radius:999px;
+    text-decoration:none;white-space:nowrap;
+    box-shadow:0 8px 20px -8px rgba(0,0,0,.6);
+  }
+  .dgb-fab:hover{transform:translateY(-1px)}
+  @media (max-width:380px){ .dgb-fab{font-size:14px;padding:12px 16px} }
+</style>
+<a class="dgb-fab" href="brand-match.html">Work with us →</a>
 </body>
 </html>
