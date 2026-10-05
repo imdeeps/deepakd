@@ -516,6 +516,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger.open span:nth-child(2){opacity:0;width:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:960px){.hamburger{display:flex;}}
+@media(max-width:600px){nav .nname{display:none!important;}nav .ncta{margin-left:auto;margin-right:.75rem;}}
 
 .mobile-menu{
   display:none;
@@ -626,6 +628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#work" onclick="closeMenu()">Work</a>
   <a href="#testimonials" onclick="closeMenu()">Results</a>
   <a href="#faq" onclick="closeMenu()">FAQs</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
   <a href="brand-match.html" onclick="closeMenu()" class="mob-cta">Start a project</a>
 </div>
 
